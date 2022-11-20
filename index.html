@@ -22,30 +22,10 @@
 	<header>
 		<!-- Barra de menu -->
 		<nav class="navbar navbar-expand-lg bg-light">
-			<div class="container-fluid">
-				<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-					<span class="navbar-toggler-icon"></span>
-				</button>
-
-
-				<div class="collapse navbar-collapse" id="navbarSupportedContent">
-					<ul class="navbar-nav me-auto mb-2 mb-lg-0" id="box-itens">
-						<li class="nav-item"><img id="logo" src="./img/eu.jpg" href="#"></img></li>
-						<li class="nav-item" id="text">
-							<a class="nav-link active" aria-current="page" href="#container1">Meus alunos </a>
-						</li>
-						<li class="nav-item" id="text">
-							<a class="nav-link active" href="#meu-container">Adicionar alunos</a>
-						</li>
-						<li class="nav-item" id="text">
-							<a class="nav-link active" href="#footer">Contato</a>
-						</li>
-					</ul>
-
-				</div>
+			<div id="nav">
+				<img class="nav-item"><img id="logo" src="./img/unnamed-2.png" href="#"></img>
 			</div>
 		</nav>
-
 
 	</header>
 
@@ -72,29 +52,35 @@
 				</thead>
 				<tbody id="tabela-alunos">
 					<tr class="aluno" id="primeiro-aluno">
+
 						<td class="info-nome">Paulo</td>
 						<td class="info-matricula">42896</td>
-						<td class="info-nota1">7.8</td>
-						<td class="info-nota2">10</td>
-						<td class="info-nota3">8.6</td>
-						<td class="info-media"></td>
-						<td class="imagem-excluir" id="btn-lixeira" data-ref="linha-remover"> <a><img src="./img/excluir.png" width="18px"></a> </td>
+						<td class="info-nota1">10.0</td>
+						<td class="info-nota2">10.0</td>
+						<td class="info-nota3">10.0</td>
+						<td class="info-media">10.0</td>
+
+
 					</tr>
 
 					<tr class="aluno">
+
 						<td class="info-nome">Douglas</td>
 						<td class="info-matricula">42896</td>
-						<td class="info-nota1">9.8</td>
+						<td class="info-nota1">9.0</td>
 						<td class="info-nota2">10.0</td>
-						<td class="info-nota3">2.2</td>
-						<td class="info-media"></td>
-						<td class="imagem-excluir" id="btn-lixeira" data-ref="linha-remover"> <a><img src="./img/excluir.png" width="18px"></a> </td>
+						<td class="info-nota3">9.0</td>
+						<td class="info-media">9.5</td>
+
+						</td>
+
 					</tr>
 
 				</tbody>
 			</table>
-			<button id="importar-alunos" class="btn btn-outline-primary">Calcular média </button>
+
 			<button id="adicionar-alunos" class="btn btn-outline-primary"> Adicionar aluno</button>
+			<h5 id="excluir"> *Clique no nome do aluno para removê-lo(a) da lista </h5>
 		</section>
 
 
@@ -105,9 +91,7 @@
 		<section class="container2" id="meu-container">
 			<div id="conteudo-container2">
 				<h2 class="titulo">Adicionar novo aluno</h2>
-				<ul id="mensagem-erro">
 
-				</ul>
 				<form id="form-adiciona">
 					<div class="grupo">
 						<label for="nome">Nome:</label>
@@ -119,16 +103,16 @@
 					</div>
 					<div class="grupo">
 						<label for="nota1">Nota 1</label>
-						<input id="nota" name="nota1" type="text" placeholder="digite a nota 1 do seu aluno" class="campo campo-medio">
+						<input id="nota1" name="nota1" type="number" placeholder="digite a nota 1 do seu aluno" class="campo campo-medio">
 					</div>
 					<div class="grupo">
 						<label for="nota2">Nota 2</label>
-						<input id="nota2" type="text" placeholder="digite a nota 2 do seu aluno" class="campo campo-medio">
+						<input id="nota2" name="nota2" type="number" placeholder="digite a nota 2 do seu aluno" class="campo campo-medio">
 					</div>
 
 					<div class="grupo">
 						<label for="nota3">Nota 3</label>
-						<input id="nota3" type="text" placeholder="digite a nota 3 do seu aluno" class="campo campo-medio">
+						<input id="nota3" name="nota3" type="number" placeholder="digite a nota 3 do seu aluno" class="campo campo-medio">
 					</div>
 
 
@@ -141,9 +125,9 @@
 		</section>
 		<script src="./functions/calcula-media.js"></script>
 		<script src="./functions/form.js"></script>
-		<script src="./functions/remover-aluno.js"></script>
+		<script src="./functions/remover-alunos.js"></script>
 		<script src="./functions/filtra.js"></script>
-		<script src="./functions/buscar-pacientes.js"></script>
+
 		<script src="./functions/ocultar-tabela-adicionar.js"></script>
 		<script src="./index.js"></script>
 

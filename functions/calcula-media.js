@@ -12,9 +12,10 @@ for (var i = 0; i < alunos.length; i++) {
   var tdNota3 = aluno.querySelector('.info-nota3');
   var nota3 = tdNota3.textContent;
 
-  function calculaMédia(nota1, nota2, nota3) {
-    media = 0;
+  function calculaMedia(nota1, nota2, nota3) {
+    var media = 0;
     media = (nota1 + nota2 + nota3) / 3;
-    return media.toFixed(2); //N° de casas decinais
+    return media;
+    //N° de casas decimais
   }
 }

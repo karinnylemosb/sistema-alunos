@@ -1,11 +1,13 @@
 var botaoAdicionar = document.querySelector('#adicionar-aluno');
+var botaoLixeira = document.getElementsByClassName('imagem-excluir');
+
 botaoAdicionar.addEventListener('click', function (event) {
-  event.preventDefault(); // Evita o recarregamento automático
+  event.preventDefault();
 
   var form = document.querySelector('#form-adiciona');
-  // Extraindo informacoes do aluno do form
-  var aluno = obtemalunoDoFormulario(form);
-  // Cria a tr e a td do aluno
+
+  var aluno = obtemAlunoDoFormulario(form);
+
   var alunoTr = montaTr(aluno);
 
   var tabela = document.querySelector('#tabela-alunos');
@@ -13,34 +15,42 @@ botaoAdicionar.addEventListener('click', function (event) {
   form.reset();
 });
 
-function adicionaalunoNaTabela(aluno) {
+function adicionaAlunoNaTabela(aluno) {
   var alunoTr = montaTr(aluno);
   var tabela = document.querySelector('#tabela-alunos');
   tabela.appendChild(alunoTr);
 }
 
-function obtemalunoDoFormulario(form) {
+function obtemAlunoDoFormulario() {
+  var form = document.querySelector('#form-adiciona');
   var aluno = {
     nome: form.nome.value, //vem do 'name' no html
     matricula: form.matricula.value,
     nota1: form.nota1.value,
     nota2: form.nota2.value,
     nota3: form.nota3.value,
-
-    media: calculaMédia(form.nota1.value, form.nota2.value, form.nota3.value),
   };
+
   return aluno;
 }
 
-function montaTr(aluno) {
+function montaTr() {
+  var aluno = obtemAlunoDoFormulario();
+
+  nota1 = parseFloat(aluno.nota1);
+  nota2 = parseFloat(aluno.nota2);
+  nota3 = parseFloat(aluno.nota3);
+  media = ((nota1 + nota2 + nota3) / 3).toFixed(2);
+
   var alunoTr = document.createElement('tr');
-  alunoTr.classList.add('aluno'); //Deixando com a class igual aos de origem
+  alunoTr.classList.add('aluno');
 
   alunoTr.appendChild(montaTd(aluno.nome, 'info-nome'));
   alunoTr.appendChild(montaTd(aluno.matricula, 'info-matricula'));
   alunoTr.appendChild(montaTd(aluno.nota1, 'info-nota1'));
-  alunoTr.appendChild(montaTd(aluno.gordura, 'info-nota2'));
-  alunoTr.appendChild(montaTd(aluno.imc, 'info-nota3'));
+  alunoTr.appendChild(montaTd(aluno.nota2, 'info-nota2'));
+  alunoTr.appendChild(montaTd(aluno.nota3, 'info-nota3'));
+  alunoTr.appendChild(montaTd(media, 'info-media'));
 
   alunoTr.appendChild(montaTdLixeira('imagem-excluir'));
 
@@ -57,7 +67,7 @@ function montaTd(dado, classe) {
 
 function montaTdLixeira(classe) {
   var td = document.createElement('td'); //Criando a td
-  td.innerHTML = '<img src ="./img/excluir.png" width="18px">';
+
   td.classList.add(classe);
 
   return td;
