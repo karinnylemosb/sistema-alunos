@@ -157,11 +157,9 @@ input {
   display: none;
 }
 
-.icons-footer {
-  display: flex;
-  align-items: center;
-  justify-content: center;
+.aprovado {
+  color: #22c55e;
 }
-#icons {
-  margin: 0 2em;
+.reprovado {
+  color: #dc2626;
 }
